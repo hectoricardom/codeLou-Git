@@ -1,12 +1,23 @@
 .logo_container{
     display: flex;
+    width: 420px;
+    margin: 0 auto;
 }
 
 .code_text{
     color:#aaaaaa;
+    padding: 3px;
+    font-family: Roboto;
+    font-size: 14px;
+    font-weight: 600;
 }
 
 .lou_text{
     color:#fff;
     background-color: #000;
+    border-radius: 3px;
+    padding: 3px;
+    font-family: Roboto;
+    font-size: 13px;
+    font-weight: 400;
 }
