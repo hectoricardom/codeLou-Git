@@ -1,0 +1,12 @@
+.logo_container{
+    display: flex;
+}
+
+.code_text{
+    color:#aaaaaa;
+}
+
+.lou_text{
+    color:#fff;
+    background-color: #000;
+}
