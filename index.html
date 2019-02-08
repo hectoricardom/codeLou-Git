@@ -1,17 +1,318 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Code Lousville</title>
-        <link rel="stylesheet" href="css/style.css">
-        <link href='http://fonts.googleapis.com/css?family=Nunito:400,300' rel='stylesheet' type='text/css'>        
+<!doctype html><html lang="en">
+    <head><meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no"/>
+        <meta name="theme-color" content="#000000"/>        
+        <title>Code Louisville</title>
+        <link href="css/style.css" rel="stylesheet">        
+        <script src="js/app.js"></script>
     </head>
-        <body>
-            <div class="logo_container" >
-                <div class="code_text" > < code </div>
-                <div class="lou_text">Louisville</div>
-                <div class="code_text">></div>
-            </div>  
-        </body>
+    
+    <body style="--color-base--hover:#e91e63">
+      <div id="SlideMenu" class="slideMenu">
+        <div class="headerMobileLogo">
+            <a class="logo">
+                LOGO
+            </a>
+        </div>
+          <nav class="navSlideBox" id="navigation" role="navigation" aria-hidden="false">
+              <ul role='menubar'>
+                   <li  onClick="ScrollIntoView(0);openSlide()">
+                    <a  role="slide_item" tab-Slide-index="0"  >
+                      Technologies
+                    </a>
+                  </li>
+                  <li  onClick="ScrollIntoView(1);openSlide()">
+                    <a role="slide_item" tab-Slide-index="1">
+                      Get Involved
+                    </a>
+                  </li>
+                  <li  onClick="ScrollIntoView(2);openSlide()">
+                    <a  role="slide_item" tab-Slide-index="2"  >
+                      Questions
+                    </a>
+                  </li>                             
+                </ul>                
+          </nav>
+      </div>
+      <div id="overlay" class="overlay" onClick="openSlide()"></div>
+            <header class="left_Header is-fixed in-transition" data-left_Header="" role="banner" style="">
+                  <button class="c-toggle"  onClick="openSlide()">
+                    <svg class="" fill="#888" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0z" fill="none"></path><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"></path></svg>
+                  </button>
+                    <div class="logo" onClick="scroll2(0)">
+                      LOGO
+                    </div>
+                    <div class="flexSpace"> </div>
+                    <nav class="navBox" id="navigation" role="navigation" aria-hidden="false">
+                          <ul role="menubar">
+                               <li>
+                                <a role="menuitem" tabindex="0" onClick="ScrollIntoView(0)">
+                                  Technologies
+                                </a>
+                              </li>
+                              <li>
+                                <a role="menuitem" tabindex="1" onClick="ScrollIntoView(1)">
+                                  Get Involved
+                                </a>
+                              </li>
+                              <li>
+                                <a role="menuitem" tabindex="2" onClick="ScrollIntoView(2)">
+                                  Questions
+                                </a>
+                              </li>                             
+                            </ul>
+                            <span id="header-tabs-nav__indicator" class="c-tabs-nav__indicator" style="width: 145px; left: 0px;"></span>
+                    </nav>
+              </header>
+
+
+
+        <noscript>You need to enable JavaScript to run this app.</noscript>
+        <div id="root" >
+                      
+            <section id="section_slider-technology">  <div class="slider-technology" data-auto-play-delay="5000" style="height: auto; touch-action: pan-y; user-select: none; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);">
+                <div class="controlContainer controlContainer__enabled" data-carousel-element="controls">
+                    <button class="controlContainer__previous icon icon--svg icon--circle-outer" data-carousel-element="arrow-prev" data-g-event="hero-carousel" data-g-action="clicked" data-g-label="arrow-left"  onClick="prevSlide()">
+                        <svg aria-hidden="false" aria-label="Show previous slide" width="30" height="30" viewBox="0 0 128 128" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="icon icon--svg">
+                            <path d="M88.6386651,68.266534 L92.486526,64.550698 L30.1506415,-5.32907052e-15 L24.2823963,5.66689859 L77.1082025,60.3696223 L80.9845748,64.3837233 L32.6805006,112.687798 L23,122.368298 L28.7684505,128.136749 L88.6386651,68.266534 Z" transform="translate(57.743263, 64.068374) scale(-1, 1) translate(-57.743263, -64.068374)"></path>
+                        </svg>
+                    </button>                          
+                    <button class="controlContainer__next icon icon--svg icon--circle-outer" data-g-event="hero-carousel" data-g-action="clicked" data-g-label="arrow-right" data-carousel-element="arrow-succ"  onClick="nextSlide()">
+                        <svg aria-hidden="false" aria-label="Show next slide" width="30" height="30" viewBox="0 0 128 128" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="icon icon--svg">
+                            <path d="M102.638665,68.266534 L106.486526,64.550698 L44.1506415,1.77635684e-15 L38.2823963,5.66689859 L91.1082025,60.3696223 L94.9845748,64.3837233 L46.6805006,112.687798 L37,122.368298 L42.7684505,128.136749 L102.638665,68.266534 Z" transform="translate(71.743263, 64.068374) scale(-1, 1) rotate(-180.000000) translate(-71.743263, -64.068374)"></path>
+                        </svg>
+                    </button>
+                </div>
+                  <ul class="slider-technology--slides" style="height: 630px;">
+                      <li class="active" data-index="0">
+                        <div class=" frontEnd grid grid-flex o-container">
+                          <div class="slider-technology--slide-text grid__item desktop--5-12  tablet--9-12">
+                            <h2 class="alpha">Front-End Web Development</h2>
+                            <p>A front-end web developer is responsible for implementing visual elements that users see and interact with in a web application.</p>
+                            <a class="btn btn--full btn--blue-o hero-carousel__cta" href="https://codelouisville.org/learn/apply" data-g-event="hero-carousel" data-g-action="clicked">
+                              Apply        
+                            </a>
+                          </div>
+                          <div class="grid__item desktop--5-12  tablet--11-12 ">
+                            <img src="img/front_end.png" srcset="img/front_end.png 1x" alt="">
+                          </div>
+                        </div>                
+                      </li>
+                      <li  data-index="1">
+                        <div class="dotNet grid grid-flex o-container">                          
+                          <div class="slider-technology--slide-text grid__item desktop--5-12  tablet--9-12">
+                            <h2 class="alpha">.NET</h2>
+                            <p>Programmers produce software by combining their source code with .NET Framework and other libraries. The framework is intended to be used by most new applications created for the Windows platform.</p>
+                            <a class="btn btn--full btn--blue-o hero-carousel__cta" href="https://codelouisville.org/learn/apply" data-g-event="hero-carousel" data-g-action="clicked">
+                              Apply        
+                            </a>
+                          </div> 
+                          <div class=" grid__item desktop--5-12  tablet--11-12">                
+                            <img src="img/_net.png" srcset="img/_net.png 1x" alt="">                                                      
+                          </div>                   
+                        </div>
+                      </li>
+                      <li data-index="2">
+                        <div class="android grid grid-flex o-container">
+                          <div class="slider-technology--slide-text grid__item desktop--5-12  tablet--9-12">
+                            <h2 class="alpha">Android Developer.</h2>
+                            <p>An Android developer is responsible for the development of applications for mobile devices on Android operating systems.</p>
+                            <a class="btn btn--full btn--blue-o hero-carousel__cta" href="https://codelouisville.org/learn/apply" data-g-event="hero-carousel" data-g-action="clicked">
+                              Apply        </a>
+                          </div>
+                          <div class="grid__item desktop--5-12  tablet--11-12">
+                            <img src="img/android2.png" srcset="img/android2.png 1x" alt="">                
+                          </div>
+                        </div>
+                      </li>
+                      <li data-index="3">
+                        <div class="backEnd grid grid-flex o-container">
+                          <div class="slider-technology--slide-text grid__item desktop--5-12  tablet--9-12"><h2 class="alpha">Full-stack Javascript</h2>
+                            <p>Back-End Web Developer Job Description Template. A back-end web developer is responsible for server-side web application logic and integration of the work front-end developers do.</p>
+                            <a class="btn btn--full btn--blue-o hero-carousel__cta" href="https://codelouisville.org/learn/apply" data-g-event="hero-carousel" data-g-action="clicked">
+                              Apply        
+                            </a>
+                          </div>
+                          <div class="grid__item desktop--5-12  tablet--11-12">
+                            <img src="img/mean.png" srcset="img/mean.png 1x" alt="">                
+                          </div>
+                        </div>
+                      </li>
+                      <li  data-index="4">
+                        <div class="python grid grid-flex o-container">
+                          <div class="slider-technology--slide-text grid__item desktop--5-12  tablet--9-12"><h2 class="alpha">Python</h2>
+                            <p>Python is an interpreted, high-level, general-purpose programming language. Python has a design philosophy that emphasizes code readability, notably using significant whitespace.</p>
+                            <a class="btn btn--full btn--blue-o hero-carousel__cta" href="https://codelouisville.org/learn/apply" data-g-event="hero-carousel" data-g-action="clicked">
+                              Apply        
+                            </a>
+                          </div>
+                          <div class=" grid__item desktop--5-12  tablet--11-12">
+                            <img src="img/python.png" srcset="img/python.png 1x" alt="">
+                          </div>
+                        </div>
+                      </li>
+                  </ul>
+                  <ul class="slider-technology--controls u-from-desktop-is-hidden slider-technology--controls__enabled">
+                      <li onClick="updSlide(0)"><button sprite-index="0" class="active"></button></li>
+                      <li onClick="updSlide(1)"><button sprite-index="1" class=""></button></li>
+                      <li onClick="updSlide(2)"><button sprite-index="2"class=""></button></li>
+                      <li onClick="updSlide(3)"><button sprite-index="3"></button></li>
+                      <li onClick="updSlide(4)"><button sprite-index="4"></button></li>
+                    </ul>                  
+                </div>
+                </section>
+
+
+                <section id="section_get_involved">
+                        <div class="o-container">
+                                <div class="left_Section__intro desktop--8-12 tablet--10-12 desktop--auto--margin tablet--auto--margin">
+                                  <h2 class="text-large">Three ways to get involved:</h2>
+                                  <p class="text-normal"> </p>
+                                </div>
+                          
+                          
+                            <div class="c-tabs-nav " data-active-item="1" data-default-key="0" data-c-tabs-nav="" data-ca-category="device-tray">
+                              <ul class="center_Tab_Nav_Items" role="tablist">
+                                  
+                          <li class="center_Tab_Nav_Item is-active" data-item="0" role="presentation" onClick="changeIndexTab(1)">
+                              <a id="most-popular-devices-tab-phone" aria-controls="most-popular-devices-panel-phone" data-c-video-trigger="most-popular-devices-video-phone" href="#section-1-1" class="center_Tab_Nav_Link" role="tab" data-ca-label="phone" data-tab-index="0" aria-selected="true" onClick="changeIndexTab(event)">
+                                <svg aria-hidden="false" aria-label="TV" class="icon icon--svg icon--tv" height="38" viewBox="0 0 24 24" width="38" xmlns="http://www.w3.org/2000/svg">
+                                  <path d="M0 0h24v24H0z" fill="none"/><path d="M7.77 6.76L6.23 5.48.82 12l5.41 6.52 1.54-1.28L3.42 12l4.35-5.24zM7 13h2v-2H7v2zm10-2h-2v2h2v-2zm-6 2h2v-2h-2v2zm6.77-7.52l-1.54 1.28L20.58 12l-4.35 5.24 1.54 1.28L23.18 12l-5.41-6.52z"/>
+                                </svg>                          
+                              </a>
+                            </li>
+                          <li class="center_Tab_Nav_Item" data-item="1" role="presentation" onClick="changeIndexTab(2)">
+                              <a id="most-popular-devices-tab-wear" aria-controls="most-popular-devices-panel-wear" data-c-video-trigger="most-popular-devices-video-wear" href="#section-1-2" class="center_Tab_Nav_Link" role="tab" data-ca-label="wear" data-tab-index="1" aria-selected="false" onClick="changeIndexTab(event)">
+                                <svg aria-hidden="false" aria-label="TV" class="icon icon--svg icon--tv" height="38" viewBox="0 0 24 24" width="38" xmlns="http://www.w3.org/2000/svg">
+                                  <circle cx="9" cy="9" r="4"/>
+                                  <path d="M9 15c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4zm7.76-9.64l-1.68 1.69c.84 1.18.84 2.71 0 3.89l1.68 1.69c2.02-2.02 2.02-5.07 0-7.27zM20.07 2l-1.63 1.63c2.77 3.02 2.77 7.56 0 10.74L20.07 16c3.9-3.89 3.91-9.95 0-14z"/><path fill="none" d="M0 0h24v24H0z"/>
+                                </svg>
+                              </a>
+                            </li>
+                          <li class="center_Tab_Nav_Item" data-item="2" role="presentation" onClick="changeIndexTab(3)">
+                              <a id="most-popular-devices-tab-tablet" aria-controls="most-popular-devices-panel-tablet" data-c-video-trigger="most-popular-devices-video-tablet" href="#section-1-3" class="center_Tab_Nav_Link" role="tab" data-ca-label="tablet" data-tab-index="2" aria-selected="false" onClick="changeIndexTab(event)">
+                                <svg aria-hidden="false" aria-label="TV" class="icon icon--svg icon--tv" height="38" viewBox="0 0 24 24" width="38" xmlns="http://www.w3.org/2000/svg">
+                                  <path d="M0 0h48v48H0z" fill="none"/><path d="M24 14V6H4v36h40V14H24zM12 38H8v-4h4v4zm0-8H8v-4h4v4zm0-8H8v-4h4v4zm0-8H8v-4h4v4zm8 24h-4v-4h4v4zm0-8h-4v-4h4v4zm0-8h-4v-4h4v4zm0-8h-4v-4h4v4zm20 24H24v-4h4v-4h-4v-4h4v-4h-4v-4h16v20zm-4-16h-4v4h4v-4zm0 8h-4v4h4v-4z"/>
+                                </svg>        
+                              </a>
+                            </li>                          
+                              </ul>
+                              <span id="c-tabs-nav__indicator" class="c-tabs-nav__indicator" style="width: 110px; left: 0px;"></span>
+                            </div>
+                          
+                                <div data-c-tabs-content="" class="c-tabs-content is-in-viewport" data-c-scroll-aware="" data-classes="is-in-viewport" data-add-on-enter="" data-c-device-query="default">
+                                    <div class="left_Section left_SectionTextMedia left_SectionTextMedias lSectionNoPadding center_Tabs_Section" aria-hidden="false" id="most-popular-devices-panel-phone" aria-labelledby="most-popular-devices-tab-phone" role="tabpanel">
+                                        <div class="grid grid--middle u-grid--override center_Tab_Content_Slide  desktop--10-12  desktop--auto--margin tablet--auto--margin">
+                                            <div class="grid__item desktop--7-12 tablet--12-12">
+                                              <div class="left_Section__media left_Section__media--raised u-text-align-center fade-and-slide fade-and-slide--right">
+                                                  <div class="left_Section__media-wrapper left_Section__media-wrapper--wear left_Section__media-wrapper--wear">
+                                                        <img class="wrapperImg"  src="img/developer.png" srcset="img/developer.png 2x">                          
+                                                  </div>
+                                              </div>
+                                            </div><!--
+                                           --><div class="grid__item desktop--4-12 tablet--12-12">
+                                              <div class="left_Section__text cascade-text desktop--10-12 tablet--8-12 tablet--auto--margin">
+                                                <h3 class="beta cascade-text__item">Learn:</h3>
+                                                <p class="text-normal cascade-text__item">
+                                                    Are you ready to upgrade your career? Begin your journey with us!
+                                                </p>
+                                                <a href="https://codelouisville.org/mentor" class="btn btn--text cascade-text__item" data-g-event="device-tray" data-g-action="cta-clicked" data-g-label="tablet">see details</a>                                         
+                                              </div>
+                                            </div>
+                                          </div>
+                                    </div>
+
+
+
+                                    <div class="left_Section left_SectionTextMedia left_SectionTextMedias lSectionNoPadding center_Tabs_Section" aria-hidden="true" id="most-popular-devices-panel-wear" aria-labelledby="most-popular-devices-tab-wear" role="tabpanel">
+                                      <div class="grid grid--middle u-grid--override center_Tab_Content_Slide  desktop--10-12  desktop--auto--margin tablet--auto--margin">
+                                        <div class="grid__item desktop--7-12 tablet--12-12">
+                                          <div class="left_Section__media left_Section__media--raised u-text-align-center fade-and-slide fade-and-slide--right">
+                                              <div class="left_Section__media-wrapper left_Section__media-wrapper--wear left_Section__media-wrapper--wear">
+                                                    <img class="wrapperImg" src="img/mentors.png" srcset="img/mentors.png 2x">                          
+                                              </div>
+                                          </div>
+                                        </div><!--
+                                       --><div class="grid__item desktop--4-12 tablet--12-12">
+                                          <div class="left_Section__text cascade-text desktop--10-12 tablet--8-12 tablet--auto--margin">
+                                            <h3 class="beta cascade-text__item">Mentors:</h3>
+                                            <p class="text-normal cascade-text__item">
+                                                Are you a software developer who wants to coach and mentor future developers? Join us!
+                                            </p>
+                                            <a href="https://codelouisville.org/mentor" class="btn btn--text cascade-text__item" data-g-event="device-tray" data-g-action="cta-clicked" data-g-label="tablet">see details</a>                                         
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <div class="left_Section left_SectionTextMedia left_SectionTextMedias lSectionNoPadding center_Tabs_Section" aria-hidden="true" id="most-popular-devices-panel-tablet" aria-labelledby="most-popular-devices-tab-tablet" role="tabpanel">
+                                      <div class="grid grid--middle u-grid--override center_Tab_Content_Slide  desktop--10-12  desktop--auto--margin tablet--auto--margin">
+                                        <div class="grid__item desktop--7-12 tablet--12-12">
+                                          <div class="left_Section__media  u-text-align-center fade-and-slide fade-and-slide--right">
+                                              <div class="left_Section__media-wrapper left_Section__media-wrapper--tablet left_Section__media-wrapper--tablet">
+                                                    <img class="wrapperImg" src="img/partners.png" srcset="img/partners.png 2x">
+                                              </div>
+                                          </div>
+                                        </div><!--
+                                       --><div class="grid__item desktop--4-12 tablet--12-12">
+                                          <div class="left_Section__text cascade-text desktop--10-12 tablet--8-12 tablet--auto--margin">
+                                            <h3 class="beta cascade-text__item">Be a Part of the Solution!</h3>
+                                            <p class="text-normal cascade-text__item">Looking for junior software talent? Check out our graduates!</p>
+                                            <a href="https://codelouisville.org/hire" class="btn btn--text cascade-text__item" data-g-event="device-tray" data-g-action="cta-clicked" data-g-label="tablet">see details</a>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>                                    
+                                </div>
+                              </div>
+
+                </section>
+
+
+              <section id="section_faq"> 
+                  <div class="o-container">
+                  <div class="left_Section__intro desktop--8-12 tablet--10-12 desktop--auto--margin tablet--auto--margin">
+                      <h2 class="text-large">Frequently Asked Questions</h2>
+                      <p class="text-normal"> </p>
+                    </div>
+                <div data-c-tabs-content="" class="c-tabs-content is-in-viewport" data-c-scroll-aware="" data-classes="is-in-viewport" data-add-on-enter="" data-c-device-query="default">
+                  <div class="left_Section left_SectionTextMedia left_SectionTextMedias lSectionNoPadding center_Tabs_Section" aria-hidden="false" id="most-popular-devices-panel-phone" aria-labelledby="most-popular-devices-tab-phone" role="tabpanel">
+                      <div class="grid grid--middle u-grid--override center_Tab_Content_Slide desktop--10-12  desktop--auto--margin tablet--auto--margin">
+                        <div class="grid__item desktop--4-12 tablet--8-12 mobile--12-12">                                          
+                          <div class="left_Section__media left_Section__media--raised u-text-align-center fade-and-slide fade-and-slide--right">                                              
+                              <div class="slider-questions--banners u-bg-white switch-slot">
+                                  <img src="img/clock.png" class="slider-questions--banners-banner">
+                                  <div class="slider-questions--banners-content">
+                                    <p>At least 15-20 hours of time is required each week working through the online courses, completing coding challenges, and developing your project. </p>            
+                                    <a href="https://codelouisville.org/learn#questions">see details</a>
+                                  </div>
+                              </div>
+                          </div>
+                        </div>                        
+                        
+                        <!--
+                       --><div class="grid__item desktop--4-12 tablet--8-12 mobile--12-12 marginHeight">
+                          <div class="left_Section__media left_Section__media--raised u-text-align-center fade-and-slide fade-and-slide--left">
+                              <div class="slider-questions--banners u-bg-white switch-slot">
+                                <img src="img/money-cost.png" class="slider-questions--banners-banner">
+                                <div class="slider-questions--banners-content">
+                                  <p>Code Louisville is offered at no cost to you through a Workforce Innovation Fund grant from the US Department of Labor.</p>            
+                                  <a href="https://codelouisville.org/learn#pricing">see details</a>
+                                </div>
+                              </div>                                            
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    </div>
+                </div>  
+              </section>
+
+
+
+
+        </div>    
+        <script>
+        loadApp();
+        </script>
+    </body>
 </html>
