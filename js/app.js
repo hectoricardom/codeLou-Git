@@ -10,6 +10,8 @@ var lastIndexScroll = 0;
 var listH = [];
 
 
+/********************************** UPDATE SLIDE TECHNOLOGY INDEX AND RENDERING THE COMPONENTS **********************************************/
+
 
 function nextSlide() {    
     var ls = document.querySelectorAll('[data-index]');
@@ -37,6 +39,10 @@ function prevSlide() {
     index = i;
 }
 
+
+
+
+
 function updSlide(i) {
     var sprit = document.querySelectorAll('[sprite-index]');    
     var ls = document.querySelectorAll('[data-index]');    
@@ -48,7 +54,12 @@ function updSlide(i) {
 }
 
 
-function openSlide(e) {
+
+/********************************** TOGGLE SLIDEMENU  **********************************************/
+
+
+
+function openSlideMenu(e) {
     var SlideMenu  = document.getElementById('SlideMenu');
     var overlay  = document.getElementById('overlay');
     if(slideOpen){
@@ -66,6 +77,12 @@ function openSlide(e) {
         SlideMenu.style.transform=`translate3d(0, 0, 0)`;
     }
 }
+
+
+
+
+/**********************************  NAV TABS AND INDICATOR BAR  **********************************************/
+
 
 function changeIndexTab(e) {
     var Ind = null;
@@ -92,35 +109,6 @@ function tabIndicator(i){
 
 
 
-function reCalcSection(){
-    listH = [];
-    var sumH=0;
-    var sctlist = document.getElementsByTagName('section');
-    for(var ss in sctlist){
-        var hh = sctlist[ss];       
-        if(hh.nextSibling){ 
-            var lastS = sumH;
-            sumH+=hh.getBoundingClientRect().height;
-            listH.push({s:lastS,e:sumH});
-        }      
-    }
-}
-
-function ScrollIntoViewM(s,b) {
-    var els = document.querySelectorAll('[tab-Slide-index]');
-    els[lastIndexScroll].style.color='#92989b';
-    els[lastIndexScroll].style.fontWeight= 'normal';
-    els[s].style.color='var(--color-base--hover)';
-    els[s].style.fontWeight= 600;
-    lastIndexScroll = s;
-    if(!b){
-        let rtop = listH[s].s/2-25;
-        if(rtop){
-            scroll2(rtop)
-        }
-    } 
-}
-
 function tabNavIndicator(s){
     var listTabH = [],  sumTH=0;       
     var els = document.querySelectorAll('[tabindex]');
@@ -142,6 +130,31 @@ function tabNavIndicator(s){
 }
 
 
+/********************************** RECALCULATE SECTION HEIGHT  **********************************************/
+
+
+
+function reCalcSection(){
+    listH = [];
+    var sumH=0;
+    var sctlist = document.getElementsByTagName('section');
+    for(var ss in sctlist){
+        var hh = sctlist[ss];       
+        if(hh.nextSibling){ 
+            var lastS = sumH;
+            sumH+=hh.getBoundingClientRect().height;
+            listH.push({s:lastS,e:sumH});
+        }      
+    }
+}
+
+
+
+/********************************** SCROLL 2 SECTION BY HEIGHT  **********************************************/
+
+
+
+
 function ScrollIntoView(s,b) {
     tabNavIndicator(s);
     lastIndexScroll = s;
@@ -154,17 +167,11 @@ function ScrollIntoView(s,b) {
     } 
 }   
 
-function scroll2(s) {   
-    animatinClass = `.52s`;
-    setTimeout(()=>{
-        _root.style.transform = `translate3d(0px,-${s}px,0)`;
-        _root.style['transition-duration'] = animatinClass;
-        window.scrollTo(0,s);
-        setTimeout(()=>{
-            animatinClass = `.0002s`;
-        },500)       
-    },5)
-}
+
+
+
+
+/********************************** ACTION EVENTS  **********************************************/
 
 
 function scrollEvent() {
@@ -186,6 +193,22 @@ function resizeEvent(e) {
 }
 
 
+function scroll2(s) {   
+    animatinClass = `.52s`;
+    setTimeout(()=>{
+        _root.style.transform = `translate3d(0px,-${s}px,0)`;
+        _root.style['transition-duration'] = animatinClass;
+        window.scrollTo(0,s);
+        setTimeout(()=>{
+            animatinClass = `.0002s`;
+        },500)       
+    },5)
+}
+
+/********************************** IN VIEW PORT   **********************************************/
+
+
+
 function isAnyPartOfElementInViewport(el) {
     const rect = el.getBoundingClientRect();    
     const windowHeight = (window.innerHeight || document.documentElement.clientHeight);
@@ -197,11 +220,16 @@ function isAnyPartOfElementInViewport(el) {
 }
 
 
+/********************************** LOADING APP  **********************************************/
+
+
+
+
 function loadApp(){
-    //var logoBtn = document.getElementById("logoBtn"); 
     _root = document.getElementById("root");
     document.addEventListener('scroll',scrollEvent)
     window.addEventListener('resize',resizeEvent)   
     changeIndexTab(indexB)
+    tabIndicator(indexB)
     reCalcSection();    
 }

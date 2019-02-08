@@ -151,7 +151,6 @@ h1, h2, h3, h4, .alpha, .beta, .gamma, .delta {
 
 .slider-technology--slides>li img {    
     max-width: calc(100% / 0.9);
-    max-height: 600px;
     margin-left: -40px;
     -webkit-transform: translateY(45%);
     -ms-transform: translateY(45%);
@@ -258,7 +257,7 @@ a, .link {
     margin: 0 5px;
 }
 .slider-technology--controls li button {
-    background-color: #9ccc65;
+    background-color:  var(--color-base--hover);
     border: none;
     border-radius: 5px;
     display: block;
@@ -267,7 +266,7 @@ a, .link {
     width: 10px;
 } 
 .slider-technology--controls li button.active {
-    background-color: #4f6f7b;
+    background-color: #bdbdbd;
 }
 
 .slider-technology .controlContainer {
@@ -665,8 +664,17 @@ svg:not(:root) {
     flex: 1 1;
 }
 
+.section_involved_width{
+    width: 580px;
+}
 
+.faq_grid_width{
+    width: 760px;
+}
 
+.section_faq_width{
+    width: 580px;
+}
 /**********************************************   BANERS FAQ   *********************************************************/
 
 
@@ -683,7 +691,7 @@ svg:not(:root) {
     position: relative;
 }
 
-.slider-questions--banners img {
+.slider-questions--banners .banner {
     bottom: 0;
     height: auto;
     max-width: 580px;
@@ -748,8 +756,122 @@ svg:not(:root) {
 }
 
 
-/*****************************************************      KEYFRAMES  AND MEDIA QUERIES     ******************************************************************/
 
+
+
+.tip__card {
+    background-color: #fff;
+    border-bottom: 4px solid transparent;
+    box-shadow: 0 2px 3px rgba(0,0,0,0.15);
+    cursor: pointer;
+    margin: 15px;
+    max-height: 90vh;
+    padding: 25px 25px 50px;
+    position: relative;
+}
+
+.tip__card-title{    
+    font-size: 26px;
+    font-size: 1.625rem;
+}
+
+
+.tip__card p {
+    font-size: 15px;
+    font-weight: 300;
+}
+
+.tip__card a {
+    bottom: 25px;
+    display: block;
+    font-size: 14px;
+    left: 0;
+    position: absolute;
+    text-indent: 25px;
+    text-transform: uppercase;
+    width: 100%;
+}
+
+.tip__card.crm-camera-photos svg {
+    background-position: 0 -144px;
+}
+
+.tip__card svg {    
+    bottom: 12px;
+    content: '';
+    display: block;
+    height: 48px;
+    position: absolute;
+    right: 25px;
+    width: 48px;
+}
+
+
+
+.time_needed{
+    border-bottom: 5px solid #7e57c2;
+    width: 300px;
+}
+
+.time_needed svg{
+    fill: #7e57c2;
+}
+
+.pricing{
+    border-bottom: 5px solid #e91e63;
+    width: 300px;
+}
+
+.pricing svg{
+    fill: #e91e63;
+}
+
+
+
+.certification{
+    border-bottom: 5px solid #42a5f5;
+    width: 300px;
+}
+
+.certification svg{
+    fill: #42a5f5;
+}
+
+.become_programmer{
+    border-bottom: 5px solid #ff3d00; 
+    width: 300px;
+}
+
+.become_programmer svg{
+    fill: #ff3d00;
+}
+
+.get_job{
+    border-bottom: 5px solid #ffea00; 
+    width: 300px;
+}
+
+.get_job svg{
+    fill :#ffea00;  
+}
+
+.veteran {
+    border-bottom: 5px solid #77c159;
+    width: 300px;
+}
+
+.veteran svg{
+    fill: #77c159;
+}
+
+
+.flexWrap{
+    flex-wrap: wrap;
+}
+
+
+
+/*****************************************************      KEYFRAMES  AND MEDIA QUERIES     ******************************************************************/
 
 
 
@@ -879,7 +1001,6 @@ svg:not(:root) {
 
     .slider-technology--slides>li img {
         margin-left: 0;
-        max-width: 600px;
         -webkit-transform: initial;
         -ms-transform: initial;
         transform: initial;
@@ -1034,6 +1155,42 @@ svg:not(:root) {
     .c-tabs-content{
         padding: 75px 0 0;
     }
+
+    .time_needed {
+        border-bottom: 5px solid #7e57c2;
+        width: 270px;
+        margin: 15px auto;
+    }
+
+    .pricing{
+        border-bottom: 5px solid #e91e63;
+        width: 270px;
+        margin: 15px auto;
+    }
+        
+           
+    .certification{
+        border-bottom: 5px solid #42a5f5;
+        width: 270px;
+        margin: 15px auto;
+    }
+   
+    .veteran {
+        border-bottom: 5px solid #77c159;
+        width: 270px;
+        margin: 15px auto;
+    }
+    .get_job{
+        border-bottom: 5px solid #ffea00; 
+        width: 270px;
+        margin: 15px auto;
+    }
+    .become_programmer{
+        border-bottom: 5px solid #ff3d00; 
+        width: 270px;
+        margin: 15px auto;
+    }
+
 }
 
 
