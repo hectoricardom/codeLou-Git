@@ -38,7 +38,7 @@ body{
 
 
 .slider-technology {
-    background: #f5f5f5 url(bg-gradient.png) repeat-x 0 0;
+    background: #f5f5f5 url(../img/bg-gradient.png) repeat-x 0 0;
     min-height: calc(100vh - 50px);
     overflow: hidden;
     position: relative;
@@ -871,6 +871,14 @@ svg:not(:root) {
 
 
 
+
+.questions{
+    background: #f5f5f5 url(../img/bg-gradient.png) repeat-x 0 0;
+    min-height: calc(100vh - 50px);
+}
+
+
+
 /*****************************************************      KEYFRAMES  AND MEDIA QUERIES     ******************************************************************/
 
 
@@ -980,7 +988,7 @@ svg:not(:root) {
     }
 
     .desktop--auto--margin{
-        margin: 0 auto;
+        margin: 20px auto;
 
 
     }
@@ -1026,7 +1034,8 @@ svg:not(:root) {
     } 
 
     .frontEnd img{
-        padding-top:  10px; 
+        padding-top:  10px;
+        max-width: 500px;
     }
     .backEnd img{
         padding-top:  10px; 
@@ -1043,7 +1052,7 @@ svg:not(:root) {
     }
 
     .left_SectionTextMedias .u-grid--override {
-        min-height: 760px;
+        min-height: 625px;
     }
     
     .center_Tab_Content_Slide {
@@ -1131,7 +1140,7 @@ svg:not(:root) {
         width: 100%;
     }
     .tablet--auto--margin{
-        margin: 0 auto;
+        margin: 20px auto;
         text-align: center;
     }
 
@@ -1159,36 +1168,36 @@ svg:not(:root) {
     .time_needed {
         border-bottom: 5px solid #7e57c2;
         width: 270px;
-        margin: 15px auto;
+        margin: 25px auto;
     }
 
     .pricing{
         border-bottom: 5px solid #e91e63;
         width: 270px;
-        margin: 15px auto;
+        margin: 25px auto;
     }
         
            
     .certification{
         border-bottom: 5px solid #42a5f5;
         width: 270px;
-        margin: 15px auto;
+        margin: 25px auto;
     }
    
     .veteran {
         border-bottom: 5px solid #77c159;
         width: 270px;
-        margin: 15px auto;
+        margin: 25px auto;
     }
     .get_job{
         border-bottom: 5px solid #ffea00; 
         width: 270px;
-        margin: 15px auto;
+        margin: 25px auto;
     }
     .become_programmer{
         border-bottom: 5px solid #ff3d00; 
         width: 270px;
-        margin: 15px auto;
+        margin: 25px auto;
     }
 
 }

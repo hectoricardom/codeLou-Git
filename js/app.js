@@ -8,7 +8,8 @@ var slideOpen = false;
 var lastIndexSld = 0;
 var lastIndexScroll = 0;
 var listH = [];
-
+var totalHeight = 0;
+var paddingT = 250;
 
 /********************************** UPDATE SLIDE TECHNOLOGY INDEX AND RENDERING THE COMPONENTS **********************************************/
 
@@ -160,13 +161,21 @@ function ScrollIntoView(s,b) {
     lastIndexScroll = s;
     reCalcSection();
     if(!b){
-        let rtop = listH[s].s/2-25;
-        if(rtop){
+        totalHeight = (listH[listH.length-1].e/2)+paddingT;
+        let rtop = listH[s].s/2;
+        if(rtop>=0){
             scroll2(rtop)
         }
     } 
 }   
 
+
+
+function setBodyheight() {
+    reCalcSection();
+    totalHeight =  (listH[listH.length-1].e/2)+paddingT;
+    _root.style.height = totalHeight+'px';
+}
 
 
 
@@ -176,20 +185,24 @@ function ScrollIntoView(s,b) {
 
 function scrollEvent() {
     scroll  =  window.pageYOffset || document.documentElement.scrollTop;   
-    _root.style.transform = `translate3d(0px,-${scroll}px,0)`; 
-    _root.style['transition-duration'] = animatinClass;
-    var rt = scroll*2+100;
-    for(var sp in listH){        
-        if(rt<listH[sp].e && rt>=listH[sp].s){    
-            ScrollIntoView(sp*1,true)
-        } 
-    }   
+    const windowHeight = (window.innerHeight || document.documentElement.clientHeight);
+    if(totalHeight>scroll+windowHeight){         
+        _root.style.transform = `translate3d(0px,-${scroll}px,0)`; 
+        _root.style['transition-duration'] = animatinClass;
+        var rt = scroll*2 + 20;
+        for(var sp in listH){
+            if(rt<listH[sp].e && rt>=listH[sp].s){    
+                ScrollIntoView(sp*1,true)
+            } 
+        }
+    }    
 }
 
 
 function resizeEvent(e) {
     tabIndicator(indexB)
     tabNavIndicator(lastIndexScroll)
+    setBodyheight()
 }
 
 
@@ -231,5 +244,6 @@ function loadApp(){
     window.addEventListener('resize',resizeEvent)   
     changeIndexTab(indexB)
     tabIndicator(indexB)
-    reCalcSection();    
+    reCalcSection();
+    setBodyheight()    
 }
