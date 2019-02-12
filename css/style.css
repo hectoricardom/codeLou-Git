@@ -433,11 +433,12 @@ button, [type="button"], [type="reset"], [type="submit"] {
     animation: fade-in .6s ease-out forwards, enter-text .6s forwards;
 }
 
-.is-in-viewport .fade-and-slide--right{
+
+
+.is-in-viewport .fade-and-slide--right {
     -webkit-animation: fade-in .6s ease-in .2s forwards, slide-right .8s ease-in-out .2s forwards;
     animation: fade-in .6s ease-in .2s forwards, slide-right .8s ease-in-out .2s forwards;
 }
-
 
 .is-in-viewport .fade-and-slide--left {
     -webkit-animation: fade-in .6s ease-in .2s forwards, slide-left .8s ease-in-out .2s forwards;
@@ -806,7 +807,20 @@ svg:not(:root) {
     width: 48px;
 }
 
+.tip__card[is-in-viewport=true].cascade-text__item {
+    -webkit-animation: fade-in .6s ease-out forwards, enter-text .6s forwards;
+    animation: fade-in .6s ease-out forwards, enter-text .6s forwards;
+}
 
+.tip__card[is-in-viewport=true].fade-and-slide--right{
+    -webkit-animation: fade-in .6s ease-in .2s forwards, slide-right .8s ease-in-out .2s forwards;
+    animation: fade-in .6s ease-in .2s forwards, slide-right .8s ease-in-out .2s forwards;
+}
+
+.tip__card[is-in-viewport=true].fade-and-slide--left{
+    -webkit-animation: fade-in .6s ease-in .2s forwards, slide-left .8s ease-in-out .2s forwards;
+    animation: fade-in .6s ease-in .2s forwards, slide-left .8s ease-in-out .2s forwards;
+}
 
 .time_needed{
     border-bottom: 5px solid #7e57c2;

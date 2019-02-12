@@ -151,6 +151,9 @@ function reCalcSection(){
 
 
 
+
+
+
 /********************************** SCROLL 2 SECTION BY HEIGHT  **********************************************/
 
 
@@ -184,6 +187,7 @@ function setBodyheight() {
 
 
 function scrollEvent() {
+
     scroll  =  window.pageYOffset || document.documentElement.scrollTop;   
     const windowHeight = (window.innerHeight || document.documentElement.clientHeight);
     if(totalHeight>scroll+windowHeight){         
@@ -196,6 +200,7 @@ function scrollEvent() {
             } 
         }
     }    
+    IsInViewport()
 }
 
 
@@ -219,6 +224,20 @@ function scroll2(s) {
 }
 
 /********************************** IN VIEW PORT   **********************************************/
+
+function IsInViewport(){
+    var els = document.querySelectorAll('[is-in-viewport=false]');
+    for(var ss =0;ss<els.length;ss++){
+        var iivp = els[ss].getAttribute("is-in-viewport")===true || els[ss].getAttribute("is-in-viewport")==='true';
+        if(!iivp){
+            if(isAnyPartOfElementInViewport(els[ss])){
+                els[ss].setAttribute("is-in-viewport",true);
+            }else{
+                //els[ss].setAttribute("is-in-viewport",false);
+            }
+        }  
+    }
+}
 
 
 
@@ -245,5 +264,6 @@ function loadApp(){
     changeIndexTab(indexB)
     tabIndicator(indexB)
     reCalcSection();
-    setBodyheight()    
+    setBodyheight(); 
+    IsInViewport(); 
 }
