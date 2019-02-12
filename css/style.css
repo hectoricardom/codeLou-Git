@@ -37,6 +37,10 @@ body{
 
 
 
+
+
+
+
 .slider-technology {
     background: #f5f5f5 url(../img/bg-gradient.png) repeat-x 0 0;
     min-height: calc(100vh - 50px);
@@ -44,9 +48,24 @@ body{
     position: relative;
     width: 100%;
     padding-top: 60px;
+    opacity: 0;
+    -webkit-transform: scale(0);
+    -ms-transform: scale(0);
+    transform: scale(0);
+    -webkit-transition: opacity .6s ease-in-out, -webkit-transform .5s ease-out;
+    transition: opacity .6s ease-in-out, -webkit-transform .5s ease-out;
+    transition: opacity .6s ease-in-out, transform .5s ease-out;
+    transition: opacity .6s ease-in-out, transform .5s ease-out, -webkit-transform .5s ease-out;
 }
 
-
+.slider-technology[is-in-viewport=true]{
+    opacity: 1;
+    -webkit-transform: scale(1);
+    -ms-transform: scale(1);
+    transform: scale(1);
+    -webkit-transition-delay: .2s;
+    transition-delay: .2s;
+}
 
 .slider-technology--slides>li {
     background: transparent no-repeat right 0;
@@ -264,7 +283,9 @@ a, .link {
     height: 10px;
     padding: 0;
     width: 10px;
+    outline: none;
 } 
+
 .slider-technology--controls li button.active {
     background-color: #bdbdbd;
 }
@@ -942,11 +963,7 @@ svg:not(:root) {
         margin: 0;
         padding: 0;
     }
-    /*
-    .left_Section__media img, .left_Section__media video {
-        max-height: 675px;
-    }
-    */
+   
     .u-from-desktop-is-hidden {
         display: none !important;
     }
@@ -1283,146 +1300,3 @@ svg:not(:root) {
         text-align: center;
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-.c-devices-pager-carousel {
-    opacity: 0;
-    overflow: hidden;
-    position: relative;
-    width: 100%;
-    margin: 0 0 30px;
-    min-height: 497px;
-    z-index: 1;
-}
-
-
-.c-devices-pager-carousel[aria-hidden='false'] {
-    opacity: 1;
-}
-
-
-.c-devices-pager-carousel__items.no-transition, .c-devices-pager-carousel__items.tween-mode {
-    -webkit-transition: none;
-    transition: none;
-}
-
-.c-devices-pager-carousel__items {
-    list-style: none;
-    overflow: hidden;
-    position: relative;
-    -webkit-transition: -webkit-transform .45s ease-in-out;
-    transition: -webkit-transform .45s ease-in-out;
-    transition: transform .45s ease-in-out;
-    transition: transform .45s ease-in-out, -webkit-transform .45s ease-in-out;
-    margin-top: 35px;
-    white-space: nowrap;
-}
-.c-carousel[data-c-scroll-aware].is-in-viewport .c-carousel__item {
-    opacity: 1;
-    -webkit-transform: scale(1);
-    -ms-transform: scale(1);
-    transform: scale(1);
-}
-
-
-.c-devices-pager-carousel__items .c-carousel__item:nth-child(1), .c-devices-pager-carousel__items .c-carousel__item:nth-child(n+3) {
-    -webkit-transition-delay: .4s;
-    transition-delay: .4s;
-}
-.c-carousel[data-c-scroll-aware] .c-carousel__item {
-    -webkit-transition: opacity .6s ease-in-out, -webkit-transform .5s ease-out;
-    transition: opacity .6s ease-in-out, -webkit-transform .5s ease-out;
-    transition: opacity .6s ease-in-out, transform .5s ease-out;
-    transition: opacity .6s ease-in-out, transform .5s ease-out, -webkit-transform .5s ease-out;
-}
-[aria-hidden='false'] .c-devices-pager-carousel__item {
-    position: relative;
-}
-.c-devices-pager-carousel__item:first-child {
-    position: relative;
-}
-.c-devices-pager-carousel__item {
-    float: left;
-    position: absolute;
-    vertical-align: top;
-}
-
-.c-device .c-device__image-container {
-    height: 405px;
-    position: relative;
-}
-
-.c-device {
-    margin: 0 20%;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-}
-
-.c-device .c-device__image-container a {
-    display: block;
-    height: 100%;
-}
-
-.c-device .c-device__image-container:after {
-    content: '';
-    display: block;
-    height: 100%;
-    left: 0;
-    position: absolute;
-    top: 0;
-    z-index: -1;
-}
-.c-device .c-device__details {
-    margin-top: 2em;
-    text-align: center;
-    white-space: normal;
-}
-@media only screen and (min-width: 1000px){
-    .c-devices-pager-carousel {
-        min-height: 597px;
-    }
-    .c-carousel {
-        margin-top: 70px;
-    }
-    .c-carousel {
-        margin: 50px 0 30px;
-    }
-    .c-devices-pager-carousel__items .c-device {
-        margin: 0 15%;
-    }
-}
-
-
-
-
-
-
-
-
-
