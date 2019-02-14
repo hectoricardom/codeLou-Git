@@ -7,9 +7,9 @@ Code Louisville Front End Project.
 
 ## Installation
 
-Just download the project and doble click on **index.html**, not have any dependencies:
+Just download the project and doble click on **index.html**, not have any dependencies.
 
 
 ## Thanks
 
-To the **Code Louisville** team for giving us the opportunity to grow as developers;
+To the **Code Louisville** team for giving us the opportunity to grow as developers.
