@@ -337,13 +337,18 @@ button, [type="button"], [type="reset"], [type="submit"] {
     cursor: pointer;
 }
 
-
-
-.icon--svg:not(.icon--own-color) {
-    fill: currentColor;
+.icon--circle-outer svg {
     fill: var(--colorText_);
 }
 
+.center_Tab_Nav_Link svg{
+    fill: var(--tab--nav-Color--);
+}
+
+
+.center_Tab_Nav_Item.is-active .center_Tab_Nav_Link  svg{
+    fill: var(--color-base--hover);
+}
 
 .icon--circle-outer {    
     border-color: transparent;
