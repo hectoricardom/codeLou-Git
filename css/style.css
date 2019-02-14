@@ -2,8 +2,8 @@ body{
     margin:0px 0px;
     min-height: 700px;
     font-size: 100%;
-    background-color: #f5f5f5;
-    color: #263238;
+    background-color: var(--background--color);
+    color: var(--colorText_);
     font-family: Roboto,Helvetica,Arial,sans-serif;
     line-height: 1.6;
 }
@@ -37,12 +37,22 @@ body{
 
 
 
+.toggle-theme{
+    position: relative;
+    padding: 18px 15px 18px 0;
+    text-align: center;
+    width: 24px;
+    height: 24px;  
+    cursor: pointer;
+}
 
-
+.toggle-theme svg{
+    fill: var(--fill--theme--color);
+}
 
 
 .slider-technology {
-    background: #f5f5f5 url(../img/bg-gradient.png) repeat-x 0 0;
+    background:  var(--background--color) url(../img/bg-gradient.png) repeat-x 0 0;
     min-height: calc(100vh - 50px);
     overflow: hidden;
     position: relative;
@@ -206,7 +216,7 @@ h1, h2, h3, h4, .alpha, .beta, .gamma, .delta {
 }
 
 .left_Header {
-    background-color: #fff;
+    background-color: var(--background--color);
     height: 60px;
     position: relative;
     z-index: 1000;
@@ -219,8 +229,14 @@ h1, h2, h3, h4, .alpha, .beta, .gamma, .delta {
     cursor: pointer;
     outline: none;
     display: inline-flex;
-    width: 90px;
+    width: 200px;
 }
+
+.left_Header .logo svg {
+    fill: var(--color-logo_);
+    fill-rule: nonzero;    
+}
+
 a, .link {
     color: var(--color-base--hover);
     cursor: pointer;
@@ -237,7 +253,7 @@ a {
     font-size: .875rem;
     letter-spacing: -.56px;
     letter-spacing: -.035rem;
-    color: #92989b;
+    color: var(--tab--nav-Color--);
     cursor: pointer;
     display: block;
     font-weight: normal;
@@ -325,11 +341,11 @@ button, [type="button"], [type="reset"], [type="submit"] {
 
 .icon--svg:not(.icon--own-color) {
     fill: currentColor;
+    fill: var(--colorText_);
 }
 
 
-.icon--circle-outer {
-    background: #fff;
+.icon--circle-outer {    
     border-color: transparent;
     border-radius: 50% 49.9%;
     box-shadow: 0 6px 10px 0 rgba(0,0,0,0.14), 0 1px 18px 0 rgba(0,0,0,0.12), 0 3px 5px -1px rgba(0,0,0,0.4);
@@ -342,14 +358,15 @@ button, [type="button"], [type="reset"], [type="submit"] {
     transition: box-shadow 0.1s cubic-bezier(0.35, 0, 0.25, 1);
     width: 64px;
     outline: none;
+    background-color: var(--background--color);
 }
+
+
+
 .icon {
     display: inline-block;
     vertical-align: middle;
 }
-
-
-
 
 
 
@@ -358,7 +375,6 @@ button, [type="button"], [type="reset"], [type="submit"] {
 
 .slideMenu{
     display: block;
-    background: #fff;
     box-shadow: 0 15px 12px rgba(0,0,0,0.22), 0 0 38px rgba(0,0,0,0.30);    
     position: fixed;    
     top:0;
@@ -373,7 +389,8 @@ button, [type="button"], [type="reset"], [type="submit"] {
     -webkit-transform: translate3d(-100%, 0, 0);
     transform: translate3d(-100%, 0, 0);
     transition-duration: 200ms;
-    background-color: #f5f5f5;
+    background-color: var(--background--color) 
+    /*#f5f5f5;*/
 }
 
 
@@ -400,7 +417,7 @@ button, [type="button"], [type="reset"], [type="submit"] {
     font-size: .875rem;
     letter-spacing: -.56px;
     letter-spacing: -.035rem;
-    color: #92989b;
+    color: var(--tab--nav-Color--);
     cursor: pointer;
     display: block;
     font-weight: normal;
@@ -421,6 +438,7 @@ button, [type="button"], [type="reset"], [type="submit"] {
     background-color: var(--color-base--hover);
     height: 120px;
     position: relative;
+    
 }
 
 .headerMobileLogo .logo {
@@ -433,7 +451,16 @@ button, [type="button"], [type="reset"], [type="submit"] {
     color: #fff;
 }
 
-
+.headerMobileLogo svg {
+    fill: var(--color-logo_);
+    fill-rule:nonzero;
+    bottom: -20px;
+    left: 20px;
+    margin: 0;
+    position: absolute;
+    top: auto;
+    width: 200px;
+}
 
 /********************************************************  ANIMATIONS GET INVOLVED **************************************************************/
 
@@ -582,7 +609,7 @@ svg:not(:root) {
 
 
 .center_Tab_Nav_Link {
-    color: #b0bec5;
+    color: var(--icon--color_);
     display: block;
     font-weight: 500;
     padding: 24px 0;
@@ -782,7 +809,7 @@ svg:not(:root) {
 
 
 .tip__card {
-    background-color: #fff;
+    background-color:  var(--tip__card--backgropund-Color--) ;
     border-bottom: 4px solid transparent;
     box-shadow: 0 2px 3px rgba(0,0,0,0.15);
     cursor: pointer;
@@ -911,7 +938,7 @@ svg:not(:root) {
 
 
 .questions{
-    background: #f5f5f5 url(../img/bg-gradient.png) repeat-x 0 0;
+    background:var(--background--color) url(../img/bg-gradient.png) repeat-x 0 0;
     min-height: calc(100vh - 50px);
 }
 

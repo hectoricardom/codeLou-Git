@@ -10,6 +10,27 @@ var lastIndexScroll = 0;
 var listH = [];
 var totalHeight = 0;
 var paddingT = 250;
+var dark = false;
+
+
+/********************************** TOOGLE DARK-LIGHT THEME STYLE **********************************************/
+
+
+function changetheme() {    
+    var bdy = document.getElementsByTagName('body')[0];
+    if(dark){
+        dark = false;
+        let style = `--color-logo_:#333;--color-base--hover:#e91e63;--background--color: #f5f5f5;--colorText_: #263238;--icon--color_: #b0bec5;--tip__card--backgropund-Color--:#fff;--tab--nav-Color--:#92989b;--fill--theme--color:#666;`;
+        bdy.style = style;
+    }else{
+        dark = true;
+        let style = `--color-logo_:#fff;--color-base--hover:#e91e63;--background--color: #263238;--colorText_: #f5f5f5;--icon--color_: #b0bec5;--tip__card--backgropund-Color--:#444;--tab--nav-Color--:#fff;--fill--theme--color:#f5f5f5;`;
+        bdy.style = style;
+    }    
+}
+
+
+
 
 /********************************** UPDATE SLIDE TECHNOLOGY INDEX AND RENDERING THE COMPONENTS **********************************************/
 
@@ -228,13 +249,10 @@ function scroll2(s) {
 function IsInViewport(){
     var els = document.querySelectorAll('[is-in-viewport=false]');
     for(var ss =0;ss<els.length;ss++){
-        var iivp = els[ss].getAttribute("is-in-viewport")===true || els[ss].getAttribute("is-in-viewport")==='true';
-        if(!iivp){
-            if(isAnyPartOfElementInViewport(els[ss])){
-                els[ss].setAttribute("is-in-viewport",true);
-            }else{
-                //els[ss].setAttribute("is-in-viewport",false);
-            }
+        if(isAnyPartOfElementInViewport(els[ss])){
+            els[ss].setAttribute("is-in-viewport",true);
+        }else{
+            //els[ss].setAttribute("is-in-viewport",false);           
         }  
     }
 }
