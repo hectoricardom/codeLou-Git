@@ -2,7 +2,11 @@
 
 Code Louisville Front End Project.
 
-* This project is a small version of [Code Louisville](https://reactjs.org/docs/getting-started.html#online-playgrounds) website.
+* This project is a small version of [Code Louisville](https://codelouisville.org) website.
+
+## Demo
+
+[demo](https://hectoricardom.github.io/)
 
 
 ## Installation
