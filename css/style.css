@@ -175,7 +175,11 @@ h1, h2, h3, h4, .alpha, .beta, .gamma, .delta {
 .slider-technology--slides>li p {
     font-size: 1.375rem;
     font-weight: 300;
+    color: var(--tip__card--p-color--);
 }
+
+
+
 
 
 .slider-technology--slides>li img {    
@@ -1228,7 +1232,7 @@ svg:not(:root) {
     }
     .slider-technology--slides>li p {
         font-size: 1.175rem;
-        color: var(--tip__card--p-color--);
+        
     }
     
     .c-tabs-content{
