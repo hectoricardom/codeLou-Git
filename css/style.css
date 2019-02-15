@@ -379,6 +379,11 @@ button, [type="button"], [type="reset"], [type="submit"] {
 
 
 
+
+
+
+
+
 /******************************************************   SLIDE MENU   ****************************************************************/
 
 
@@ -1009,6 +1014,7 @@ svg:not(:root) {
     .u-from-desktop-is-hidden {
         display: none !important;
     }
+
     .left_SectionTextMedias .u-grid--override {       
         
         -webkit-box-align: center;
@@ -1074,6 +1080,7 @@ svg:not(:root) {
     .left_Section .beta {
         margin-bottom: 0;
     }
+
     h2, .beta {
         font-size: 46px;
         font-size: 2.875rem;
@@ -1086,9 +1093,11 @@ svg:not(:root) {
         -ms-transform: initial;
         transform: initial;
     }
+
     .slider-technology--slide-text {
         padding-top: 200px;
     }    
+    
     h1, .alpha {
         font-size: 64px;
         font-size: 4rem;
