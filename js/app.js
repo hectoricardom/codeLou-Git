@@ -20,11 +20,11 @@ function changetheme() {
     var bdy = document.getElementsByTagName('body')[0];
     if(dark){
         dark = false;
-        let style = `--color-logo_:#333;--color-base--hover:#e91e63;--background--color: #f5f5f5;--colorText_: #263238;--icon--color_: #b0bec5;--tip__card--backgropund-Color--:#fff;--tab--nav-Color--:#92989b;--fill--theme--color:#666;`;
+        let style = `--tip__card--p-color--:#777;--color-logo_:#333;--color-base--hover:#e91e63;--background--color: #f5f5f5;--colorText_: #263238;--icon--color_: #b0bec5;--tip__card--backgropund-Color--:#fff;--tab--nav-Color--:#92989b;--fill--theme--color:#666;`;
         bdy.style = style;
     }else{
         dark = true;
-        let style = `--color-logo_:#fff;--color-base--hover:#e91e63;--background--color: #263238;--colorText_: #f5f5f5;--icon--color_: #b0bec5;--tip__card--backgropund-Color--:#444;--tab--nav-Color--:#fff;--fill--theme--color:#f5f5f5;`;
+        let style = `--tip__card--p-color--:#aaaaaa;--color-logo_:#fff;--color-base--hover:#e91e63;--background--color: #263238;--colorText_: #f5f5f5;--icon--color_: #b0bec5;--tip__card--backgropund-Color--:#444;--tab--nav-Color--:#fff;--fill--theme--color:#f5f5f5;`;
         bdy.style = style;
     }    
 }

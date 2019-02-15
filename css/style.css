@@ -480,6 +480,9 @@ button, [type="button"], [type="reset"], [type="submit"] {
 }
 
 
+.left_Section .left_Section__text .text-normal{
+   color: var(--tip__card--p-color--);
+} 
 
 .c-tabs-content[is-in-viewport=true] .cascade-text__item {
     -webkit-animation: fade-in .6s ease-out forwards, enter-text .6s forwards;
@@ -827,12 +830,14 @@ svg:not(:root) {
 .tip__card-title{    
     font-size: 26px;
     font-size: 1.625rem;
+   
 }
 
 
 .tip__card p {
     font-size: 15px;
     font-weight: 300;
+    color:  var(--tip__card--p-color--) ;
 }
 
 .tip__card a {
@@ -849,9 +854,7 @@ svg:not(:root) {
     color: rgb(146, 152, 155);
 }
 
-.tip__card.crm-camera-photos svg {
-    background-position: 0 -144px;
-}
+
 
 .tip__card svg {    
     bottom: 12px;
@@ -1225,6 +1228,7 @@ svg:not(:root) {
     }
     .slider-technology--slides>li p {
         font-size: 1.175rem;
+        color: var(--tip__card--p-color--);
     }
     
     .c-tabs-content{
