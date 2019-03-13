@@ -10,13 +10,14 @@ var lastIndexScroll = 0;
 var listH = [];
 var totalHeight = 0;
 var paddingT = 250;
-var dark = false;
+var dark = true;
+
 
 
 /********************************** TOOGLE DARK-LIGHT THEME STYLE **********************************************/
 
 
-function changetheme() {    
+function changetheme(e) {   
     var bdy = document.getElementsByTagName('body')[0];
     if(dark){
         dark = false;
@@ -35,7 +36,7 @@ function changetheme() {
 /********************************** UPDATE SLIDE TECHNOLOGY INDEX AND RENDERING THE COMPONENTS **********************************************/
 
 
-function nextSlide() {    
+function nextSlide(e) {  
     var ls = document.querySelectorAll('[data-index]');
     var i = 0;
     if(ls.length-1===index){
@@ -48,7 +49,7 @@ function nextSlide() {
     index = i;    
 }
 
-function prevSlide() {
+function prevSlide(e) {
     var ls = document.querySelectorAll('[data-index]');
     var i = 0;
     if(0===index){
@@ -65,14 +66,21 @@ function prevSlide() {
 
 
 
-function updSlide(i) {
-    var sprit = document.querySelectorAll('[sprite-index]');    
-    var ls = document.querySelectorAll('[data-index]');    
-    ls[index].setAttribute("class",``);
-    ls[i].setAttribute("class",`active`);
-    sprit[index].setAttribute("class",``);
-    sprit[i].setAttribute("class",`active`);
-    index = i;
+function updSlide(e) {
+    var i = e
+    if(e.target){ 
+        var td = e.target && e.target.getAttribute("sprite-index");
+        i = td && parseInt(td);
+    }
+    if(i+1){
+        var sprit = document.querySelectorAll('[sprite-index]');    
+        var ls = document.querySelectorAll('[data-index]');
+        ls[index].setAttribute("class",``);
+        ls[i].setAttribute("class",`active`);
+        sprit[index].setAttribute("class",``);
+        sprit[i].setAttribute("class",`active`);
+        index = i;
+    }
 }
 
 
@@ -89,8 +97,6 @@ function openSlideMenu(e) {
         SlideMenu.style.opacity=0;
         SlideMenu.style.transform=`translate3d(-110%, 0, 0)`;
         overlay.style.visibility='hidden';
-       
-
     }
     else{
         slideOpen = true;
@@ -107,11 +113,21 @@ function openSlideMenu(e) {
 
 
 function changeIndexTab(e) {
-    var Ind = null;
-    var ls = document.querySelectorAll('[data-item]');
-    Ind = e-1;    
-    
-    if(Ind>=0 && indexB !== Ind){        
+    var Ind = null;  
+    var ls = document.querySelectorAll('[data-item]');  
+    if(e.target){       
+        for(let tb in ls){
+            let hh = ls[tb];
+            if(hh && hh.parentNode && hh.contains(e.target)){ 
+                var td = hh.getAttribute("data-item");
+                var s = td && parseInt(td);
+                Ind = s;
+            }
+        }
+    }else{
+        Ind = e;
+    }
+    if(Ind>=0 && indexB !== Ind){
         var els = document.querySelectorAll('[aria-labelledby]');
         ls[indexB].setAttribute("class",`center_Tab_Nav_Item`);
         ls[Ind].setAttribute("class",`center_Tab_Nav_Item is-active`);        
@@ -119,6 +135,10 @@ function changeIndexTab(e) {
         els[indexB].setAttribute("aria-hidden",`true`);
         els[Ind].setAttribute("aria-hidden",`false`);
         indexB = Ind;
+        if(window.outerWidth<720){
+            var ttab = ((720-window.outerWidth)/13)+55;
+            scroll2(ttab)
+        } 
     }    
 }
 
@@ -133,22 +153,26 @@ function tabIndicator(i){
 
 function tabNavIndicator(s){
     var listTabH = [],  sumTH=0;       
-    var els = document.querySelectorAll('[tabindex]');
+    var els = document.querySelectorAll('[tab-index]');
     for(let ss in els){
         let hh = els[ss];       
-        if(hh.nextSibling){            
+        if(hh.parentNode){            
             listTabH.push({l:sumTH,w:hh.getBoundingClientRect().width});
             sumTH+=hh.getBoundingClientRect().width;
         }      
     }
-    var elsD = document.querySelectorAll('[tab-Slide-index]');
+    var elsD = document.querySelectorAll('[tab-slide-index]');
     elsD[lastIndexScroll].style.color='#92989b';
     elsD[lastIndexScroll].style.fontWeight= 'normal';
-    elsD[s].style.color='var(--color-base--hover)';
-    elsD[s].style.fontWeight= 600;
+    if(elsD[s]){
+        elsD[s].style.color='var(--color-base--hover)';
+        elsD[s].style.fontWeight= 600;
+    }    
     let navsprite  = document.getElementById('header-tabs-nav__indicator');
-    navsprite.style.left = `${listTabH[s].l}px`; 
-    navsprite.style.width = `${listTabH[s].w}px`;
+    if(navsprite){
+        navsprite.style.left = `${listTabH[s].l}px`; 
+        navsprite.style.width = `${listTabH[s].w}px`;
+    }
 }
 
 
@@ -162,7 +186,7 @@ function reCalcSection(){
     var sctlist = document.getElementsByTagName('section');
     for(var ss in sctlist){
         var hh = sctlist[ss];       
-        if(hh.nextSibling){ 
+        if(hh.parentNode){ 
             var lastS = sumH;
             sumH+=hh.getBoundingClientRect().height;
             listH.push({s:lastS,e:sumH});
@@ -180,18 +204,46 @@ function reCalcSection(){
 
 
 
-function ScrollIntoView(s,b) {
-    tabNavIndicator(s);
-    lastIndexScroll = s;
-    reCalcSection();
-    if(!b){
-        totalHeight = (listH[listH.length-1].e/2)+paddingT;
-        let rtop = listH[s].s/2;
-        if(rtop>=0){
-            scroll2(rtop)
+function ScrollIntoView(e,b) {
+    var s = e;    
+    if(e.target){
+        var td = e.target && e.target.getAttribute("tab-index");
+        s = td && parseInt(td);
+    }
+    if(s>=0){
+        tabNavIndicator(s);     
+        lastIndexScroll = s;
+        reCalcSection();
+        if(!b){
+            totalHeight = (listH[listH.length-1].e/2)+paddingT;
+            let rtop = listH[s].s/2;
+            if(rtop>=0){
+                scroll2(rtop)
+            }
         }
-    } 
+    }
 }   
+
+
+function ScrollIntoViewSlideM(e) {
+    var td = e.target && e.target.getAttribute("tab-slide-index");
+    var s = td && parseInt(td);
+    var b =false;
+    if(s>=0){
+        tabNavIndicator(s);     
+        lastIndexScroll = s;
+        reCalcSection();
+        if(!b){
+            totalHeight = (listH[listH.length-1].e/2)+paddingT;
+            let rtop = listH[s].s/2;
+            if(rtop>=0){
+                scroll2(rtop);
+                openSlideMenu();
+            }
+        }
+    }
+} 
+
 
 
 
@@ -206,10 +258,9 @@ function setBodyheight() {
 
 /********************************** ACTION EVENTS  **********************************************/
 
-
 function scrollEvent() {
-
     scroll  =  window.pageYOffset || document.documentElement.scrollTop;   
+    console.log(scroll)
     const windowHeight = (window.innerHeight || document.documentElement.clientHeight);
     if(totalHeight>scroll+windowHeight){         
         _root.style.transform = `translate3d(0px,-${scroll}px,0)`; 
@@ -232,17 +283,24 @@ function resizeEvent(e) {
 }
 
 
-function scroll2(s) {   
+function scroll2(s){    
+    var t2t = s;
+    if(s.target){
+        t2t = 0;
+    }
     animatinClass = `.52s`;
     setTimeout(()=>{
-        _root.style.transform = `translate3d(0px,-${s}px,0)`;
+        _root.style.transform = `translate3d(0px,-${t2t}px,0)`;
         _root.style['transition-duration'] = animatinClass;
-        window.scrollTo(0,s);
+        window.scrollTo(0,t2t);
         setTimeout(()=>{
             animatinClass = `.0002s`;
         },500)       
     },5)
 }
+
+
+
 
 /********************************** IN VIEW PORT   **********************************************/
 
@@ -259,11 +317,10 @@ function IsInViewport(){
 
 
 
-function isAnyPartOfElementInViewport(el) {
+function isAnyPartOfElementInViewport(el) {        
     const rect = el.getBoundingClientRect();    
     const windowHeight = (window.innerHeight || document.documentElement.clientHeight);
     const windowWidth = (window.innerWidth || document.documentElement.clientWidth);
-
     const vertInView = (rect.top <= windowHeight) && ((rect.top + rect.height) >= 0);
     const horInView = (rect.left <= windowWidth) && ((rect.left + rect.width) >= 0);
     return (vertInView && horInView);
@@ -275,13 +332,72 @@ function isAnyPartOfElementInViewport(el) {
 
 
 
+
+
 function loadApp(){
     _root = document.getElementById("root");
-    document.addEventListener('scroll',scrollEvent)
-    window.addEventListener('resize',resizeEvent)   
+    changetheme();
+    document.addEventListener('scroll',scrollEvent);
+    window.addEventListener('resize',resizeEvent); 
+
+    /********************************** CLICK EVENTS  **********************************************/
+
+    var tab_nav_index = document.querySelectorAll('[tab-index]'); 
+    for(let tb in tab_nav_index){
+        let hh = tab_nav_index[tb];
+        if(hh && hh.parentNode){ 
+            hh.addEventListener('click',ScrollIntoView);
+        }
+    }
+
+    var tab_slide_index = document.querySelectorAll('[tab-slide-index]');
+    for(let tb in tab_slide_index){
+        let hh = tab_slide_index[tb];
+        if(hh && hh.parentNode){
+            hh.addEventListener('click',ScrollIntoViewSlideM);
+        }
+    }
+
+    var sprite_index = document.querySelectorAll('[sprite-index]');    
+    for(let sprt in sprite_index){
+        let hh = sprite_index[sprt];
+        if(hh && hh.parentNode){ 
+            hh.addEventListener('click',updSlide);
+        }
+    }
+
+    var open_slides = document.querySelectorAll('[open-slide]');
+    for(let sprt in open_slides){
+        let hh = open_slides[sprt];
+        if(hh && hh.parentNode){ 
+            hh.addEventListener('click',openSlideMenu);
+        }
+    }
+
+    var data_item_index = document.querySelectorAll('[data-item]');  
+    for(let tb in data_item_index){
+        let hh = data_item_index[tb];
+        if(hh && hh.parentNode){ 
+            hh.addEventListener('click',changeIndexTab);
+        }
+    }
+
+    var logo2top = document.getElementById('2logo2top');
+    logo2top.addEventListener('click',scroll2); 
+
+    var changethemebtn = document.getElementById('changetheme');
+    changethemebtn.addEventListener('click',changetheme);
+
+    var prevSlidebtn = document.getElementById('prevSlide');
+    prevSlidebtn.addEventListener('click',prevSlide);
+    
+    var nextSlidebtn = document.getElementById('nextSlide');
+    nextSlidebtn.addEventListener('click',nextSlide); 
+
     changeIndexTab(indexB)
     tabIndicator(indexB)
     reCalcSection();
     setBodyheight(); 
     IsInViewport(); 
+    
 }

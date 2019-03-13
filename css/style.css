@@ -1,7 +1,7 @@
 body{
     margin:0px 0px;
     min-height: 700px;
-    font-size: 100%;
+    font-size: 14px;
     background-color: var(--background--color);
     color: var(--colorText_);
     font-family: Roboto,Helvetica,Arial,sans-serif;
@@ -53,11 +53,11 @@ body{
 
 .slider-technology {
     background:  var(--background--color) url(../img/bg-gradient.png) repeat-x 0 0;
-    min-height: calc(100vh - 50px);
+    /*min-height: calc(100vh - 50px);*/
     overflow: hidden;
     position: relative;
     width: 100%;
-    padding-top: 60px;
+    padding: 60px 0px;
     opacity: 0;
     -webkit-transform: scale(0.4);
     -ms-transform: scale(0.4);
@@ -95,6 +95,7 @@ body{
 .slider-technology--slides {
     margin: 0 0 10px;
     position: relative;
+    height: 520px;
 }
 
 .slider-technology--slides>li.active {
@@ -1023,7 +1024,7 @@ svg:not(:root) {
         display: -webkit-box;
         display: -ms-flexbox;
         display: flex;
-        min-height: 475px;
+        min-height: 200px;
     }
     .left_SectionTextMedia .u-grid--override {
         padding-top: 60px;
@@ -1134,7 +1135,7 @@ svg:not(:root) {
     }
 
     .left_SectionTextMedias .u-grid--override {
-        min-height: 625px;
+        min-height: 325px;
     }
     
     .center_Tab_Content_Slide {
@@ -1237,7 +1238,7 @@ svg:not(:root) {
         transform: translateY(2%);
     }
     .slider-technology--slide-text {
-        padding: 40px 0;
+        padding: 10px 0;
     }
     .slider-technology--slides>li p {
         font-size: 1.175rem;
@@ -1245,7 +1246,7 @@ svg:not(:root) {
     }
     
     .c-tabs-content{
-        padding: 75px 0 0;
+        padding:25px 0 0;
     }
 
     .time_needed {
@@ -1293,7 +1294,7 @@ svg:not(:root) {
         max-width: 90%;
     }
     .c-tabs-content{
-        padding: 75px 0 0;
+        padding: 25px 0 0;
     }
     .slider-technology .slider-technology--controls.slider-technology--controls__enabled {
         display: block;
