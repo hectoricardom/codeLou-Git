@@ -11,7 +11,7 @@ var listH = [];
 var totalHeight = 0;
 var paddingT = 250;
 var dark = true;
-
+var isMobile = 750;
 
 
 /********************************** TOOGLE DARK-LIGHT THEME STYLE **********************************************/
@@ -135,10 +135,10 @@ function changeIndexTab(e) {
         els[indexB].setAttribute("aria-hidden",`true`);
         els[Ind].setAttribute("aria-hidden",`false`);
         indexB = Ind;
-        if(window.outerWidth<720){
-            var ttab = ((720-window.outerWidth)/13)+55;
+        if(window.outerWidth<isMobile){
+            var ttab = ((isMobile-window.outerWidth)/16)+55;
             scroll2(ttab)
-        } 
+        }
     }    
 }
 
@@ -259,8 +259,7 @@ function setBodyheight() {
 /********************************** ACTION EVENTS  **********************************************/
 
 function scrollEvent() {
-    scroll  =  window.pageYOffset || document.documentElement.scrollTop;   
-    console.log(scroll)
+    scroll  =  window.pageYOffset || document.documentElement.scrollTop; 
     const windowHeight = (window.innerHeight || document.documentElement.clientHeight);
     if(totalHeight>scroll+windowHeight){         
         _root.style.transform = `translate3d(0px,-${scroll}px,0)`; 
@@ -277,6 +276,12 @@ function scrollEvent() {
 
 
 function resizeEvent(e) {
+    if(lastIndexScroll==0){
+        if(window.outerWidth<isMobile){
+            var ttab = ((isMobile-window.outerWidth)/16)+55;
+            scroll2(ttab)
+        }
+    }
     tabIndicator(indexB)
     tabNavIndicator(lastIndexScroll)
     setBodyheight()
@@ -340,7 +345,7 @@ function loadApp(){
     document.addEventListener('scroll',scrollEvent);
     window.addEventListener('resize',resizeEvent); 
 
-    /********************************** CLICK EVENTS  **********************************************/
+        /********************************** CLICK EVENTS  **********************************************/
 
     var tab_nav_index = document.querySelectorAll('[tab-index]'); 
     for(let tb in tab_nav_index){
@@ -393,6 +398,8 @@ function loadApp(){
     
     var nextSlidebtn = document.getElementById('nextSlide');
     nextSlidebtn.addEventListener('click',nextSlide); 
+
+        /********************************** INITIALIZING FUNCTIONS  **********************************************/
 
     changeIndexTab(indexB)
     tabIndicator(indexB)
