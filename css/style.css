@@ -695,7 +695,7 @@ svg:not(:root) {
 
 
 .frontEnd img{
-  padding-top:  200px; 
+  padding-top:  150px; 
 }
 
 .dotNet img{
@@ -707,11 +707,11 @@ svg:not(:root) {
 }
 
 .python img{
-    padding-top:  250px; 
+    padding-top:  200px; 
 }
 
 .android img{
-    padding-top:  250px; 
+    padding-top:  150px; 
 }
 
 .left_Header .c-toggle {
