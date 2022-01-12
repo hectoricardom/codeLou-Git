@@ -4,10 +4,6 @@ Code Louisville Front End Project.
 
 * This project is a small version of [Code Louisville](https://codelouisville.org) website.
 
-## Demo
-
-[demo](https://hectoricardom.github.io/)
-
 
 ## Installation
 
